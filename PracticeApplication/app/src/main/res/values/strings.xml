@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">PracticeApplication</string>
+    <string name="stub_success">If you can see this message, it means that the stub worked properly. Hurray!</string>
+    <string name="stub_prompt">This activity is to demonstrate how stubs work. Press the "Inflate"
+        button to inflate the stub view</string>
+</resources>
