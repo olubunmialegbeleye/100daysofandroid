@@ -5,21 +5,32 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class StubActivity extends Activity {
-    EditText intext = (EditText) findViewById(R.id.intext_edit_text);
-    View stub = (View) findViewById(R.id.stub_parent);
-    TextView outText = (TextView) findViewById(R.id.stub_tv);
+    EditText inText;
+    View stub;
+    TextView outText;
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stub);
+        inText = findViewById(R.id.intext_edit_text);
+        stub = findViewById(R.id.stub_parent);
     }
     public void displayText(View view){
-        outText.setText(intext.getText());
+        outText = findViewById(R.id.stub_tv);
+        try{
+            outText.setText(inText.getText().toString());
+        }
+        catch(NullPointerException e){
+            Toast  errMsg = Toast.makeText(this, "You need to inflate the stub by pressing the \"Inflate\" button first",Toast.LENGTH_SHORT);
+            errMsg.show();
+        }
     }
 
     public void inflateStub(View view) {
         stub.setVisibility(View.VISIBLE);
+
     }
 }
